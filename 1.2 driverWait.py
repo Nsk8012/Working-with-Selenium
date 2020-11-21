@@ -16,5 +16,9 @@ search = driver.find_element_by_xpath(
 search.send_keys("Test")
 search.send_keys(Keys.RETURN)
 
-time.sleep
-driver.quit()
+try:
+    main = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, 'main')))
+
+finally:
+    driver.quit()
